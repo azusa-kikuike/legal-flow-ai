@@ -100,14 +100,5 @@ root_agent = Agent(
     name="legal_flow_agent",  # 名前も変更
     model="gemini-2.0-flash",
     instruction="You are a legal document analysis assistant that helps extract actors and actions from Japanese legal texts.",
-    tools=[get_weather, get_current_time, parse_legal_article],  # 追加
+    tools=[get_weather, get_current_time, parse_legal_article], 
 )
-
-
-
-#root_agent = Agent(
-#    name="root_agent",
-#    model="gemini-2.0-flash",
-#    instruction="You are a helpful AI assistant designed to provide accurate and useful information.",
-#    tools=[get_weather, get_current_time],
-#)
