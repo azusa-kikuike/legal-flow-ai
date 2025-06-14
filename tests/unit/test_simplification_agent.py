@@ -31,10 +31,12 @@ def test_simplification_agent_configuration():
 
 def test_simplification_agent_prompt_content():
     """Test that the prompt contains expected instructions."""
-    assert "法令文書を平易な文章に訳しなさい" in SIMPLIFICATION_AGENT_PROMPT
-    assert "公的個人認証法" in SIMPLIFICATION_AGENT_PROMPT
+    assert "法令条文を平易な文章に訳す" in SIMPLIFICATION_AGENT_PROMPT
+    assert "日本語の文章を返す" in SIMPLIFICATION_AGENT_PROMPT
     assert "各条文をそのまま訳す" in SIMPLIFICATION_AGENT_PROMPT
     assert "定義に記載されている各用語の意味を記載する" in SIMPLIFICATION_AGENT_PROMPT
+    assert "legal_flow_agent" in SIMPLIFICATION_AGENT_PROMPT
+    assert "転送" in SIMPLIFICATION_AGENT_PROMPT
 
 
 def test_simplification_agent_prompt_not_empty():

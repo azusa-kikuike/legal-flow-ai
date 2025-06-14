@@ -40,11 +40,6 @@ def get_weather(query: str) -> str:
     return "It's 90 degrees and sunny."
 
 
-
-
-
-
-# root_agentのtoolsに追加
 root_agent = Agent(
     name="legal_flow_agent",  # 名前も変更
     model="gemini-2.0-flash",
