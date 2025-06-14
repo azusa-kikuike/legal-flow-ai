@@ -41,42 +41,6 @@ def get_weather(query: str) -> str:
 
 
 
-def parse_legal_article(article_text: str) -> str:
-    """法令条文を解析して関係者とアクションを抽出する
-
-    Args:
-        article_text: 解析したい法令条文のテキスト
-
-    Returns:
-        解析結果(関係者とアクション)をJSON形式の文字列で返す
-    """
-    import json
-
-    # 関係者を抽出
-    actors = []
-    if "認証業務を行う者" in article_text:
-        actors.append("認証業務事業者")
-    if "申請者" in article_text:
-        actors.append("申請者")
-    if "総務大臣" in article_text:
-        actors.append("総務大臣")
-
-    # アクションを抽出
-    actions = []
-    if "認定する" in article_text:
-        actions.append("認定")
-    if "申請" in article_text:
-        actions.append("申請")
-    if "通知" in article_text:
-        actions.append("通知")
-
-    result = {
-        "actors": actors,
-        "actions": actions,
-        "summary": f"関係者{len(actors)}名、アクション{len(actions)}個を検出",
-    }
-
-    return json.dumps(result, ensure_ascii=False)
 
 
 # root_agentのtoolsに追加
@@ -84,7 +48,7 @@ root_agent = Agent(
     name="legal_flow_agent",  # 名前も変更
     model="gemini-2.0-flash",
     instruction="You are a legal document analysis assistant that helps extract actors and actions from Japanese legal texts.",
-    tools=[get_weather, parse_legal_article],
+    tools=[get_weather],
     sub_agents=[
         simplification_agent,
         workflow_diagram_agent,
