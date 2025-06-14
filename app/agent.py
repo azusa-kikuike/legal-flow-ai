@@ -16,6 +16,7 @@ import os
 
 import google.auth
 from google.adk.agents import Agent
+from . import prompt
 from .sub_agents.simplification.agent import simplification_agent
 from .sub_agents.workflow_diagram.agent import workflow_diagram_agent
 
@@ -47,7 +48,7 @@ def get_weather(query: str) -> str:
 root_agent = Agent(
     name="legal_flow_agent",  # 名前も変更
     model="gemini-2.0-flash",
-    instruction="You are a legal document analysis assistant that helps extract actors and actions from Japanese legal texts.",
+    instruction=prompt.ROOT_PROMPT,
     tools=[get_weather],
     sub_agents=[
         simplification_agent,
