@@ -17,7 +17,11 @@ Unit tests for the workflow diagram agent.
 """
 
 import pytest
-from app.sub_agents.workflow_diagram.agent import workflow_diagram_agent
+from app.sub_agents.workflow_diagram.agent import (
+    workflow_diagram_agent, 
+    generate_mermaid_image_url, 
+    generate_diagram_with_image
+)
 from app.sub_agents.workflow_diagram.prompt import WORKFLOW_DIAGRAM_AGENT_PROMPT
 
 
@@ -55,3 +59,28 @@ def test_workflow_diagram_agent_prompt_includes_stakeholders():
     assert "申請者" in WORKFLOW_DIAGRAM_AGENT_PROMPT
     assert "行政機関" in WORKFLOW_DIAGRAM_AGENT_PROMPT
     assert "事業者" in WORKFLOW_DIAGRAM_AGENT_PROMPT
+
+
+def test_generate_mermaid_image_url():
+    """Test that Mermaid image URL generation works correctly."""
+    mermaid_code = "graph TD\n    A[Start] --> B[End]"
+    url = generate_mermaid_image_url(mermaid_code)
+    
+    assert url.startswith("https://mermaid.live/edit#")
+    assert len(url) > 40  # Base64エンコードされたURLは十分な長さを持つ
+
+
+def test_generate_diagram_with_image():
+    """Test that diagram with image generation returns correct structure."""
+    mermaid_code = "graph TD\n    A[申請] --> B[承認]"
+    result = generate_diagram_with_image(mermaid_code)
+    
+    assert isinstance(result, str)  # 現在の実装では文字列を返す
+    assert result.startswith("https://mermaid.live/edit#")
+
+
+def test_workflow_diagram_agent_has_tools():
+    """Test that workflow diagram agent has the image generation tool."""
+    assert len(workflow_diagram_agent.tools) > 0
+    tool_names = [tool.__name__ for tool in workflow_diagram_agent.tools]
+    assert "generate_diagram_with_image" in tool_names

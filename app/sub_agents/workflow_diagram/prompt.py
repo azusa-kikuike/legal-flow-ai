@@ -7,4 +7,7 @@ WORKFLOW_DIAGRAM_AGENT_PROMPT = """
     - 条件分岐や承認プロセスを含める
     - 各ステップでの必要書類や期限も記載する
     - 最終的な成果物（許可、認定、証明書等）を明示する
+    
+    フロー図作成後は、generate_diagram_with_image 関数を使用して画像URLを生成してください。
+    この関数にMermaidコードを渡すと、Mermaid Live Editorの画像URL付きの結果が返されます。
 """
