@@ -12,9 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import datetime
 import os
-from zoneinfo import ZoneInfo
 
 import google.auth
 from google.adk.agents import Agent
@@ -41,23 +39,6 @@ def get_weather(query: str) -> str:
     return "It's 90 degrees and sunny."
 
 
-def get_current_time(query: str) -> str:
-    """Simulates getting the current time for a city.
-
-    Args:
-        city: The name of the city to get the current time for.
-
-    Returns:
-        A string with the current time information.
-    """
-    if "sf" in query.lower() or "san francisco" in query.lower():
-        tz_identifier = "America/Los_Angeles"
-    else:
-        return f"Sorry, I don't have timezone information for query: {query}."
-
-    tz = ZoneInfo(tz_identifier)
-    now = datetime.datetime.now(tz)
-    return f"The current time for query {query} is {now.strftime('%Y-%m-%d %H:%M:%S %Z%z')}"
 
 
 def parse_legal_article(article_text: str) -> str:
@@ -103,7 +84,7 @@ root_agent = Agent(
     name="legal_flow_agent",  # 名前も変更
     model="gemini-2.0-flash",
     instruction="You are a legal document analysis assistant that helps extract actors and actions from Japanese legal texts.",
-    tools=[get_weather, get_current_time, parse_legal_article],
+    tools=[get_weather, parse_legal_article],
     sub_agents=[
         simplification_agent,
         workflow_diagram_agent,

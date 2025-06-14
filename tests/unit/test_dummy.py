@@ -19,7 +19,7 @@ data processing, and other core components of your application.
 
 import json
 import pytest
-from app.agent import get_weather, get_current_time, parse_legal_article
+from app.agent import get_weather, parse_legal_article
 
 def test_dummy() -> None:
     """Placeholder - replace with real tests."""
