@@ -18,6 +18,7 @@ from zoneinfo import ZoneInfo
 
 import google.auth
 from google.adk.agents import Agent
+from .sub_agents.simplification.agent import simplification_agent
 
 _, project_id = google.auth.default()
 os.environ.setdefault("GOOGLE_CLOUD_PROJECT", project_id)
@@ -102,4 +103,7 @@ root_agent = Agent(
     model="gemini-2.0-flash",
     instruction="You are a legal document analysis assistant that helps extract actors and actions from Japanese legal texts.",
     tools=[get_weather, get_current_time, parse_legal_article],
+    sub_agents=[
+        simplification_agent,
+    ],
 )
