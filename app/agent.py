@@ -19,6 +19,7 @@ from zoneinfo import ZoneInfo
 import google.auth
 from google.adk.agents import Agent
 from .sub_agents.simplification.agent import simplification_agent
+from .sub_agents.workflow_diagram.agent import workflow_diagram_agent
 
 _, project_id = google.auth.default()
 os.environ.setdefault("GOOGLE_CLOUD_PROJECT", project_id)
@@ -105,5 +106,6 @@ root_agent = Agent(
     tools=[get_weather, get_current_time, parse_legal_article],
     sub_agents=[
         simplification_agent,
+        workflow_diagram_agent,
     ],
 )
