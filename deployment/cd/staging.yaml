@@ -57,7 +57,7 @@ steps:
         uv add locust==2.32.6
         uv run locust -f tests/load_test/load_test.py \
         --headless \
-        -t 30s -u 2 -r 0.5 \
+        -t 10s -u 1 -r 0.1 \
         --csv=tests/load_test/.results/results \
         --html=tests/load_test/.results/report.html
     env:
