@@ -106,8 +106,9 @@ steps:
         echo "_________________________________________________________________________"
 
 substitutions:
-  _STAGING_PROJECT_ID: "${_STAGING_PROJECT_ID}"
-  _REGION: us-central1
+  _STAGING_PROJECT_ID: "legal-flow-ai-staging"
+  _REGION: "us-central1"
+  _BUCKET_NAME_LOAD_TEST_RESULTS: "legal-flow-ai-cicd-legal-flow-ai-load-test"
 
 logsBucket: gs://${PROJECT_ID}-legal-flow-ai-logs-data/build-logs
 options:
