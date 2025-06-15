@@ -78,21 +78,21 @@ steps:
         echo "_________________________________________________________________________"
 
   # Trigger Prod Deployment
-  - name: gcr.io/cloud-builders/gcloud
-    id: trigger-prod-deployment
-    entrypoint: gcloud
-    args:
-      - "beta"
-      - "builds"
-      - "triggers"
-      - "run"
-      - "deploy-legal-flow-ai"
-      - "--region"
-      - "$LOCATION"
-      - "--project"
-      - "$PROJECT_ID"
-      - "--sha"
-      - $COMMIT_SHA
+#  - name: gcr.io/cloud-builders/gcloud
+#   id: trigger-prod-deployment
+#    entrypoint: gcloud
+#    args:
+#      - "beta"
+#      - "builds"
+#      - "triggers"
+#      - "run"
+#      - "deploy-legal-flow-ai"
+#      - "--region"
+#      - "$LOCATION"
+#      - "--project"
+#      - "$PROJECT_ID"
+#      - "--sha"
+#      - $COMMIT_SHA
 
   - name: gcr.io/cloud-builders/gcloud
     id: echo-view-build-trigger-link
