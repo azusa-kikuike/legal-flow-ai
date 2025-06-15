@@ -10,6 +10,7 @@ This is a legal flow AI project built with Agent Development Kit (ADK) that appe
 - `make backend` - Export dependencies and run the agent engine app
 - `make lint` - Run code quality checks (codespell, ruff, mypy)
 - `make setup-dev-env` - Set up development environment with Terraform
+- `uv run streamlit run streamlit_app.py` - Start the Streamlit Web UI for legal document analysis
 
 ## Code Quality
 Always run `make lint` after making changes to ensure code quality standards are met.
