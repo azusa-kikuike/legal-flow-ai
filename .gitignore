@@ -145,6 +145,12 @@ dmypy.json
 .terraform*
 .Terraform*
 
+# Terraform files
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+
 
 tmp*
 

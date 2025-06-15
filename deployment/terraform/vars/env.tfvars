@@ -14,7 +14,7 @@ cicd_runner_project_id = "legal-flow-ai-cicd"
 host_connection_name = "legal-flow-ai-connection"
 
 # Name of the repository you added to Cloud Build
-repository_name = "azusa-kikuike/legal-flow-ai"
+repository_name = "legal-flow-ai-repo"
 
 # The Google Cloud region you will use to deploy the infrastructure
 region = "asia-northeast1"
