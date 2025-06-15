@@ -33,7 +33,7 @@ steps:
         uv run app/agent_engine_app.py \
           --project ${_STAGING_PROJECT_ID} \
           --location ${_REGION} \
-          --set-env-vars="COMMIT_SHA=${COMMIT_SHA},PROJECT_ID=${_STAGING_PROJECT_ID},REGION=${_REGION}"
+          --set-env-vars="COMMIT_SHA=test-commit-sha,PROJECT_ID=${_STAGING_PROJECT_ID},REGION=${_REGION}"
     env:
       - 'PATH=/usr/local/bin:/usr/bin:~/.local/bin'
 
