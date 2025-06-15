@@ -94,16 +94,16 @@ steps:
 #      - "--sha"
 #      - $COMMIT_SHA
 
-  - name: gcr.io/cloud-builders/gcloud
-    id: echo-view-build-trigger-link
-    entrypoint: /bin/bash
-    args:
-      - "-c"
-      - |
-        echo "_________________________________________________________________________"
-        echo "Production deployment triggered. View progress and / or approve on the Cloud Build Console:"
-        echo "https://console.cloud.google.com/cloud-build/builds;region=$LOCATION"
-        echo "_________________________________________________________________________"
+#  - name: gcr.io/cloud-builders/gcloud
+#    id: echo-view-build-trigger-link
+#    entrypoint: /bin/bash
+#    args:
+#      - "-c"
+#      - |
+#        echo "_________________________________________________________________________"
+#        echo "Production deployment triggered. View progress and / or approve on the Cloud Build Console:"
+#        echo "https://console.cloud.google.com/cloud-build/builds;region=$LOCATION"
+#        echo "_________________________________________________________________________"
 
 substitutions:
   _STAGING_PROJECT_ID: "legal-flow-ai-staging"
