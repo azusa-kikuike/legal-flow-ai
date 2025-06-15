@@ -38,8 +38,8 @@ steps:
       - 'PATH=/usr/local/bin:/usr/bin:~/.local/bin'
 
 substitutions:
-  _PROD_PROJECT_ID: YOUR_PROD_PROJECT_ID
-  _REGION: asia-northeast1
+  _PROD_PROJECT_ID: ${_PROD_PROJECT_ID}
+  _REGION: us-central1
 
 logsBucket: gs://${PROJECT_ID}-legal-flow-ai-logs-data/build-logs
 options:

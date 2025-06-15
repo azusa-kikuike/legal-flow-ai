@@ -17,4 +17,4 @@ host_connection_name = "legal-flow-ai-connection"
 repository_name = "legal-flow-ai-repo"
 
 # The Google Cloud region you will use to deploy the infrastructure
-region = "asia-northeast1"
+region = "us-central1"
